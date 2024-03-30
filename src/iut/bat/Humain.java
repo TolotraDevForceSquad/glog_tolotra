@@ -41,4 +41,12 @@ public class Humain {
             System.out.println(this.prenom + " déjà ami avec " + ami.prenom + ".");
         }
     }
+    
+    public List<Humain> getAmis() {
+        return amis;
+    }
+    
+    public void setAmis(List<Humain> amis) {
+        this.amis = amis;
+    }
 }
