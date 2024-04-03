@@ -3,7 +3,7 @@ package iut.bat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Humain {
+public class Humain implements Consommation {
 	private String nom;
     private String prenom;
     private int age;
@@ -32,14 +32,18 @@ public class Humain {
         System.out.println("Je bois.");
     }
     
-    public void ami(Humain ami) {
+    public void ami(Humain ami, int duree) {
         if (!this.amis.contains(ami)) {
             this.amis.add(ami);
-            ami.ami(this);
-            System.out.println(this.prenom + " ami avec " + ami.prenom + ".");
+            ami.ami(this, duree);
+            System.out.println(this.prenom + " ami avec " + ami.prenom + " pour " + duree + " jours.");
         } else {
             System.out.println(this.prenom + " déjà ami avec " + ami.prenom + ".");
         }
+    }
+    
+    public void ami(Humain ami) {
+        ami(ami, 100);
     }
     
     public List<Humain> getAmis() {
